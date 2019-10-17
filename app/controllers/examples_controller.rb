@@ -50,6 +50,7 @@ class ExamplesController < ProtectedController
 
   def set_example
     # THIS current_user OBJECT IS INHERITED FROM THE ProtectedController class above
+
     @example = current_user.examples.find(params[:id])
   end
 
