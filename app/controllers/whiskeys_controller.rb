@@ -17,10 +17,10 @@ class WhiskeysController < OpenReadController
 
   # POST /whiskeys
   def create
-    @whiskey = Whiskey.new(whiskey_params)
+    @whiskey = current_user.whiskeys.build(whiskey_params)
 
     if @whiskey.save
-      render json: @whiskey, status: :created, location: @whiskey
+      render json: @whiskey, status: :created #, location: @whiskey
     else
       render json: @whiskey.errors, status: :unprocessable_entity
     end
@@ -40,15 +40,15 @@ class WhiskeysController < OpenReadController
     @whiskey.destroy
   end
 
-  private
-
   # Use callbacks to share common setup or constraints between actions.
   def set_whiskey
-    @whiskey = Whiskey.find(params[:id])
+    @whiskey = current_user.whiskeys.find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.
   def whiskey_params
     params.require(:whiskey).permit(:name, :variety, :region, :age, :primary_taste, :price)
   end
+
+  private :set_whiskey, :whiskey_params
 end
