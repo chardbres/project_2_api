@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl "http://localhost:4741/examples" \
+curl "https://dry-scrubland-57892.herokuapp.com/examples" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \
