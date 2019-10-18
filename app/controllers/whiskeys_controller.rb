@@ -20,7 +20,7 @@ class WhiskeysController < OpenReadController
     @whiskey = current_user.whiskeys.build(whiskey_params)
 
     if @whiskey.save
-      render json: @whiskey, status: :created #, location: @whiskey
+      render json: @whiskey, status: :created, location: @whiskey
     else
       render json: @whiskey.errors, status: :unprocessable_entity
     end
@@ -38,6 +38,8 @@ class WhiskeysController < OpenReadController
   # DELETE /whiskeys/1
   def destroy
     @whiskey.destroy
+
+    head :no_content
   end
 
   # Use callbacks to share common setup or constraints between actions.
