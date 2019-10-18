@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class WhiskeysController < ProtectedController
+class WhiskeysController < OpenReadController
   before_action :set_whiskey, only: %i[show update destroy]
 
   # GET /whiskeys
