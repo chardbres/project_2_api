@@ -8,7 +8,7 @@ curl "https://dry-scrubland-57892.herokuapp.com/whiskeys" \
   --data '{
     "whiskey": {
       "name": "'"${NAME}"'",
-      "variety": "'"${VARIETY}"'",
+      "variety": "'"${VAR}"'",
       "region": "'"${REGION}"'",
       "age": "'"${AGE}"'",
       "primary_taste": "'"${TASTE}"'",

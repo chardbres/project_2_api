@@ -12,7 +12,7 @@ class WhiskeysController < ProtectedController
 
   # GET /whiskeys/1
   def show
-    render json: @whiskey
+    render json: Whiskey.find(params[:id])
   end
 
   # POST /whiskeys
