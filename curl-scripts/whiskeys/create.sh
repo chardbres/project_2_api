@@ -9,13 +9,10 @@ curl "http://localhost:4741/whiskeys" \
     "whiskey": {
       "name": "'"${NAME}"'",
       "variety": "'"${VARIETY}"'",
-      "distiller": "'"${DISTILLER}"'",
       "region": "'"${REGION}"'",
       "age": "'"${AGE}"'",
       "primary_taste": "'"${TASTE}"'",
-      "price": "'"${PRICE}"'",
-      "tasting_date": "'"${DATE}"'",
-      "description": "'"${DESC}"'"
+      "price": "'"${PRICE}"'"
     }
   }'
 

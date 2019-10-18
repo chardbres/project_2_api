@@ -1,3 +1,3 @@
 class WhiskeySerializer < ActiveModel::Serializer
-  attributes :id, :name, :variety, :distiller, :region, :age, :primary_taste, :price, :tasting_date, :description
+  attributes :id, :name, :variety, :region, :age, :primary_taste, :price
 end

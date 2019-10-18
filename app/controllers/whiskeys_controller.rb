@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class WhiskeysController < OpenReadController
-  before_action :set_whiskey, only: [:show, :update, :destroy]
+  before_action :set_whiskey, only: %i[show update destroy]
 
   # GET /whiskeys
   def index
@@ -39,13 +41,14 @@ class WhiskeysController < OpenReadController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_whiskey
-      @whiskey = Whiskey.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def whiskey_params
-      params.require(:whiskey).permit(:name, :variety, :distiller, :region, :age, :primary_taste, :price, :tasting_date, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_whiskey
+    @whiskey = Whiskey.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def whiskey_params
+    params.require(:whiskey).permit(:name, :variety, :region, :age, :primary_taste, :price)
+  end
 end
