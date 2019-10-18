@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl "http://localhost:4741/sign-out" \
+curl "https://dry-scrubland-57892.herokuapp.com/sign-out" \
   --include \
   --request DELETE \
   --header "Content-Type: application/json" \
