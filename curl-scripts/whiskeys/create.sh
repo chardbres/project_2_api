@@ -1,6 +1,6 @@
 #!/bin/bash
 
-curl "http://https://dry-scrubland-57892.herokuapp.com/whiskeys" \
+curl "https://dry-scrubland-57892.herokuapp.com/whiskeys" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \
