@@ -45,7 +45,7 @@ class WhiskeysController < ProtectedController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_whiskey
-    @whiskey = current_user.examples.find(params[:id])
+    @whiskey = current_user.whiskeys.find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.
@@ -53,5 +53,5 @@ class WhiskeysController < ProtectedController
     params.require(:whiskey).permit(:name, :type, :region, :age, :taste, :price, :user_id)
   end
 
-  private :set_whiskey, :example_params
+  private :set_whiskey, :whiskey_params
 end
