@@ -53,5 +53,5 @@ class WhiskeysController < ProtectedController
     params.require(:whiskey).permit(:name, :type, :region, :age, :taste, :price, :user_id)
   end
 
-  private :set_example, :example_params
+  private :set_whiskey, :example_params
 end
