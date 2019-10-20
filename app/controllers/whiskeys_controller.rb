@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class WhiskeysController < ApplicationController
+class WhiskeysController < ProtectedController
   before_action :set_whiskey, only: %i[show update destroy]
 
   # GET /whiskeys
@@ -17,7 +17,8 @@ class WhiskeysController < ApplicationController
 
   # POST /whiskeys
   def create
-    @whiskey = Whiskey.new(whiskey_params)
+    # @whiskey = Whiskey.new(whiskey_params)
+    @whiskey = current_user.examples.build(whiskey_params)
 
     if @whiskey.save
       render json: @whiskey, status: :created, location: @whiskey
@@ -44,11 +45,13 @@ class WhiskeysController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_whiskey
-    @whiskey = Whiskey.find(params[:id])
+    @whiskey = current_user.examples.find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.
   def whiskey_params
     params.require(:whiskey).permit(:name, :type, :region, :age, :taste, :price, :user_id)
   end
+
+  private :set_example, :example_params
 end
