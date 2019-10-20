@@ -1,7 +1,4 @@
 class WhiskeySerializer < ActiveModel::Serializer
-  attributes :id, :name, :variety, :region, :age, :primary_taste, :price, :editable
-
-  def editable
-    scope == object.user
-  end
+  attributes :id, :name, :type, :region, :age, :taste, :price
+  has_one :user
 end
