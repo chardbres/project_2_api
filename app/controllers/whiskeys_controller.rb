@@ -18,7 +18,7 @@ class WhiskeysController < ProtectedController
   # POST /whiskeys
   def create
     # @whiskey = Whiskey.new(whiskey_params)
-    @whiskey = current_user.examples.build(whiskey_params)
+    @whiskey = current_user.whiskeys.build(whiskey_params)
 
     if @whiskey.save
       render json: @whiskey, status: :created, location: @whiskey
