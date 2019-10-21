@@ -50,7 +50,7 @@ class WhiskeysController < ProtectedController
 
   # Only allow a trusted parameter "white list" through.
   def whiskey_params
-    params.require(:whiskey).permit(:name, :type, :region, :age, :taste, :price, :user_id)
+    params.require(:whiskey).permit(:name, :variety, :region, :age, :taste, :price, :user_id)
   end
 
   private :set_whiskey, :whiskey_params
