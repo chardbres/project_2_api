@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class WhiskeysController < OpenReadController
+class WhiskeysController < ProtectedController
   before_action :set_whiskey, only: %i[show update destroy]
 
   # GET /whiskeys
@@ -17,8 +17,8 @@ class WhiskeysController < OpenReadController
 
   # POST /whiskeys
   def create
-    # @whiskey = Whiskey.new(whiskey_params)
-    @whiskey = current_user.whiskeys.build(whiskey_params)
+    @whiskey = Whiskey.new(whiskey_params)
+    # @whiskey = current_user.whiskeys.build(whiskey_params)
 
     if @whiskey.save
       render json: @whiskey, status: :created, location: @whiskey
